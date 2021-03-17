@@ -32,17 +32,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
+                    <a href="<?= base_url('bobby/index') ?>" class="nav-link">Home</a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
-                </li>
+
             </ul>
 
             <!-- SEARCH FORM -->
-            <form class="form-inline ml-3">
+            <form class="form-inline ml-3" action="" method="post">
                 <div class="input-group input-group-sm">
-                    <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search" name="cari">
                     <div class="input-group-append">
                         <button class="btn btn-navbar" type="submit">
                             <i class="fas fa-search"></i>
@@ -74,7 +72,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
                 <img src="<?= base_url('assets/adminlte/'); ?>dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Arsip SURAT</span>
+                <span class="brand-text font-weight-light">BPPD</span>
             </a>
 
             <!-- Sidebar -->
@@ -89,17 +87,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                 </div>
 
-                <!-- SidebarSearch Form -->
-                <div class="form-inline">
-                    <div class="input-group" data-widget="sidebar-search">
-                        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-sidebar">
-                                <i class="fas fa-search fa-fw"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
@@ -116,35 +104,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link active">
+                                    <a href="<?= base_url('bobby/index') ?>" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Input Data Surat Masuk</p>
+                                        <p>Home</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link active">
+                                    <a href="<?= base_url('bobby/tambah') ?>" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Input Data Surat Keluar</p>
+                                        <p>Input Form</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('bobby/tamp'); ?>" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>tampil</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('auth/logout'); ?>" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>logout</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    Surat Masuk
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    Surat Keluar
-                                </p>
-                            </a>
-                        </li>
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -159,7 +144,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Arsip SURAT</h1>
+                            <h1 class="m-0">Data Form</h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -170,14 +155,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 mt-3">
-                        <a href="<?= base_url('user/tambah') ?>" class="btn btn-primary">Tambah Data Arsip</a>
+                        <a href="<?= base_url('bobby/tambah') ?>" class="btn btn-primary">Tambah Form</a>
                     </div>
                 </div>
             </div>
 
             <div class="container mt-3">
                 <?php if ($this->session->flashdata('flash')) : ?>
-                    <div class="alert alert-success alert-dismissible fade show" role="alert"> Data arsip
+                    <div class="alert alert-success alert-dismissible fade show" role="alert"> Data Form
                         <strong>Berhasil</strong> <?= $this->session->flashdata('flash'); ?>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -188,22 +173,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <thead class="table-dark">
                         <tr>
                             <th scope="col">No</th>
-                            <th scope="col">Nomor Surat</th>
-                            <th scope="col">Pengirim</th>
+                            <th scope="col">Nama </th>
+                            <th scope="col">Masukan</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?= $i = 1; ?>
-                        <?php foreach ($arsip as $ars) : ?>
+                        <?php $i = 1; ?>
+                        <?php foreach ($buku as $ars) : ?>
                             <tr>
                                 <th scope="row"><?= $i++; ?></th>
-                                <td><?= $ars['nomorsurat']; ?></td>
-                                <td><?= $ars['pengirim']; ?></td>
+                                <td><?= $ars['judul']; ?></td>
+                                <td><?= $ars['jumlah']; ?></td>
                                 <td>
-                                    <a href="<?= base_url(); ?>user/ubah/<?= $ars['id']; ?>" class="badge badge-success float-right">ubah</a>
-                                    <a href="<?= base_url(); ?>user/detail/<?= $ars['id']; ?>" class="badge badge-primary float-right">detail</a>
-                                    <a href="<?= base_url(); ?>user/hapus/<?= $ars['id']; ?>" class="badge badge-danger float-right" onclick="return confirm('yakin ?');">hapus</a>
+                                    <a href="<?= base_url(); ?>bobby/ubahx/<?= $ars['id']; ?>" class="badge badge-success float-none">ubah</a>
+                                    <a href="<?= base_url(); ?>bobby/detail/<?= $ars['id']; ?>" class="badge badge-primary float-none">detail</a>
+                                    <a href="<?= base_url(); ?>bobby/hapus/<?= $ars['id']; ?>" class="badge badge-danger float-none" onclick="return confirm('yakin ?');">hapus</a>
 
                                 </td>
                             </tr>

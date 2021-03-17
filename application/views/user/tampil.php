@@ -16,6 +16,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="<?= base_url('assets/adminlte/'); ?>plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url('assets/adminlte/'); ?>dist/css/adminlte.min.css">
+    <!-- MyCSS-->
+    <link rel="stylesheet" href="<?= base_url(); ?>asset/css/style.css">
+
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -35,9 +38,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </ul>
 
             <!-- SEARCH FORM -->
-            <form class="form-inline ml-3">
+            <form class="form-inline ml-3" action="" method="post">
                 <div class="input-group input-group-sm">
-                    <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search" name="cari">
                     <div class="input-group-append">
                         <button class="btn btn-navbar" type="submit">
                             <i class="fas fa-search"></i>
@@ -69,7 +72,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
                 <img src="<?= base_url('assets/adminlte/'); ?>dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Form</span>
+                <span class="brand-text font-weight-light">BPPD</span>
             </a>
 
             <!-- Sidebar -->
@@ -84,17 +87,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                 </div>
 
-                <!-- SidebarSearch Form -->
-                <div class="form-inline">
-                    <div class="input-group" data-widget="sidebar-search">
-                        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-sidebar">
-                                <i class="fas fa-search fa-fw"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
@@ -111,24 +104,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?= base_url('Bobby/index') ?>" class="nav-link active">
+                                    <a href="<?= base_url('bobby/index') ?>" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Home</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('Bobby/tambah') ?>" class="nav-link active">
+                                    <a href="<?= base_url('bobby/tambah') ?>" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Input Data Form Masuk</p>
+                                        <p>Input Form</p>
                                     </a>
                                 </li>
-
                                 <li class="nav-item">
                                     <a href="<?= base_url('bobby/tamp'); ?>" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>tampil</p>
                                     </a>
                                 </li>
+
                                 <li class="nav-item">
                                     <a href="<?= base_url('auth/logout'); ?>" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
@@ -144,7 +137,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
             <!-- /.sidebar -->
         </aside>
-        <!--------------------------------------------------------------------------- -->
+
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
@@ -152,7 +145,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">ubah data Form</h1>
+                            <h1 class="m-0">Data Form</h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -160,53 +153,47 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- /.content-header -->
 
             <!-- Main content -->
+
             <div class="container">
-
-                <div class="row mt-3">
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-header">
-                                <label>ubah Data Form</label>
-                            </div>
-                            <div class="card-body">
-                                <form action="" method="post">
-                                    <input type="hidden" name="id" value="<?= $mahasiswa["id"];  ?>">
-                                    <div class="form-group">
-                                        <label for="judul">Nama </label>
-                                        <input value=" <?= $user['name']; ?>" type="text" class="form-control" id="judul" name="judul" readonly>
-                                        <small class="text-danger"><?= form_error('judul'); ?></small>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="jumlah">komen</label>
-                                        <input value="<?= $mahasiswa['jumlah']; ?> " type="text" class="form-control" id="jumlah" name="jumlah" readonly>
-                                        <small class="text-danger"><?= form_error('jumlah'); ?></small>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="tanggal">Tanggal Masuk</label>
-                                        <small><?= $mahasiswa['tanggal']; ?></small>
-                                        <input value="<?= $mahasiswa['tanggal']; ?> " type="text" class="form-control" id="tanggal" name="tanggal" readonly>
-
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="rep">Reply </label>
-                                        <input value=" <?= $mahasiswa['rep']; ?>" type="text" class="form-control" id="rep" name="rep">
-                                        <small class="text-danger"><?= form_error('rep'); ?></small>
-                                    </div>
-                                    <button type="submit" name="ubah" class="btn btn-primary float-right">ubah Data</button>
-                                </form>
-
-                            </div>
-                        </div>
-
+                <div class="row">
+                    <div class="col-md-6 mt-3">
+                        <a href="<?= base_url('bobby/print') ?>" class="btn btn-primary">print Form</a>
                     </div>
                 </div>
+            </div>
 
+
+            <div class="container mt-3">
+
+                <table class="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Nama </th>
+                            <th scope="col">Masukan</th>
+                            <th scope="col">Reply</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $i = 1; ?>
+                        <?php foreach ($buku as $ars) : ?>
+                            <tr>
+                                <th scope="row"><?= $i++; ?></th>
+                                <td><?= $ars['judul']; ?></td>
+                                <td><?= $ars['jumlah']; ?></td>
+                                <td><?= $ars['rep']; ?>
+
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
             </div>
 
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-        <!--------------------------------------------------------------------------- -->
+
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->

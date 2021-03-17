@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Auth extends CI_Controller
 {
-
+ 
     public function __construct()
     {
         parent::__construct();
@@ -16,7 +16,7 @@ class Auth extends CI_Controller
 
 
         if ($this->form_validation->run() == false) {
-            $data['title'] = 'ARSIP | Login';
+            $data['title'] = 'Login';
             $this->load->view('templates/auth_header', $data);
             $this->load->view('auth/login');
             $this->load->view('templates/auth_footer');
@@ -43,7 +43,7 @@ class Auth extends CI_Controller
                         'role_id' => $user['role_id']
                     ];
                     $this->session->set_userdata($data);
-                    redirect('user');
+                    redirect('bobby');
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
                     Wrong password!
@@ -76,7 +76,7 @@ class Auth extends CI_Controller
 
 
         if ($this->form_validation->run() == false) {
-            $data['title'] = 'ARSIP | Registration';
+            $data['title'] = 'Registration';
             $this->load->view('templates/auth_header', $data);
             $this->load->view('auth/registration');
             $this->load->view('templates/auth_footer');

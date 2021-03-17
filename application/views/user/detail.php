@@ -32,11 +32,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
+                    <a href="<?= base_url('bobby/index') ?>" class="nav-link">Home</a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
-                </li>
+
             </ul>
 
             <!-- SEARCH FORM -->
@@ -74,7 +72,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
                 <img src="<?= base_url('assets/adminlte/'); ?>dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Arsip SURAT</span>
+                <span class="brand-text font-weight-light">Form</span>
             </a>
 
             <!-- Sidebar -->
@@ -116,35 +114,34 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link active">
+                                    <a href="<?= base_url('user/index') ?>" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Input Data Surat Masuk</p>
+                                        <p>Home</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link active">
+                                    <a href="<?= base_url('user/tambah') ?>" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Input Data Surat Keluar</p>
+                                        <p>Input Data Form Masuk</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="<?= base_url('bobby/tamp'); ?>" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>tampil</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="<?= base_url('auth/logout'); ?>" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>logout</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    Surat Masuk
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    Surat Keluar
-                                </p>
-                            </a>
-                        </li>
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -159,7 +156,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Arsip SURAT</h1>
+                            <h1 class="m-0">Form </h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -169,17 +166,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Main content -->
 
 
-<div class="card">
-  <div class="card-header">
-Detail Data Arsip
-  </div>
-  <div class="card-body">
-    <h5 class="card-title"><?= $mahasiswa['pengirim']; ?></h5>
-    <p class="card-text"><?= $mahasiswa['nomorsurat']; ?></p>
-    <a href="<?= base_url('user/index') ?>" class="btn btn-primary">Kembali</a>
+            <div class="card">
+                <div class="card-header">
+                    Detail Data Form
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title"><?= $mahasiswa['judul']; ?></h5>
+                    <p class="card-text"><?= $mahasiswa['jumlah']; ?></p>
+                    <p class="card-text"><?= $mahasiswa['tanggal']; ?></p>
+                    <a href="<?= base_url('user/index') ?>" class="btn btn-primary">Kembali</a>
 
-  </div>
-</div>
+                </div>
+            </div>
 
 
 
