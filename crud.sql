@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2021 at 07:28 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.2
+-- Generation Time: Mar 18, 2021 at 11:04 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,33 +19,37 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ci3_arsip`
+-- Database: `crud`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `arsip`
+-- Table structure for table `buku`
 --
 
-CREATE TABLE `arsip` (
+CREATE TABLE `buku` (
   `id` int(11) NOT NULL,
-  `nomorsurat` varchar(255) NOT NULL,
-  `pengirim` varchar(255) NOT NULL,
-  `tglmasuk` varchar(128) NOT NULL,
-  `perihal` varchar(255) NOT NULL,
-  `tujuan` varchar(255) NOT NULL,
-  `keterangan` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `judul` varchar(255) NOT NULL,
+  `jumlah` varchar(255) NOT NULL,
+  `tanggal` date NOT NULL,
+  `rep` varchar(255) NOT NULL,
+  `res` int(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `arsip`
+-- Dumping data for table `buku`
 --
 
-INSERT INTO `arsip` (`id`, `nomorsurat`, `pengirim`, `tglmasuk`, `perihal`, `tujuan`, `keterangan`) VALUES
-(1, '005/A/Panpel-TE/Kemen-LU/BEM-U/KBM/UL/II/2020', 'BEM-U KBM Unila', '29 Februari 2020', 'Undangan\r\nJumat, 6 Maret 2020\r\n', 'Ketua Himakom', 'Talkshow Energi 5.0'),
-(2, '001/A/KELEMBAGAAN/DPM/FMIPA/UL/III/2020', 'DPM FMIPA Unila', '29 Maret 2020', 'Undangan Hearing\r\nSenin, 30 Maret 2020\r\n', 'Ketua Himakom', 'Hearing Lembaga Kemahasiswaan FMIPA Unila'),
-(3, '005-(1)/A/SEKRETARIS/Himakom/FMIPA /UL/III/2018', 'Himakom Indonesia', '13 Maret', 'Pembetitahuan Minggu, 18 Maret 2018', 'Ketua Jurusan Ilmu Komputer Unila', 'Pembetitahuan Kegiatan BEM FMIPA Indonesia');
+INSERT INTO `buku` (`id`, `judul`, `jumlah`, `tanggal`, `rep`, `res`) VALUES
+(1, ' sri puspita dewi', 'hiya hiya hiya ini komen yak    ', '2021-03-25', 'komentar1', 1),
+(2, ' sri puspita dewi', 'testetetetet      ', '2021-03-15', '    teretetet', 1),
+(6, ' sri puspita dewi', 'aasasfad  ', '2021-03-16', '  hiyaa', 1),
+(7, ' sri puspita dewi', 'asdasd  ', '2021-03-17', '  test', 1),
+(13, ' sri puspita dewi', 'scsc ', '2021-03-31', ' &lt;3', 1),
+(17, ' sri puspita dewi', 'asdsad  ', '2021-03-31', '  tesst', 1),
+(18, 'sri puspita dewi', 'caya', '2021-03-22', '', 0),
+(19, 'sri puspita dewi', '4asas', '2021-03-25', '', 0);
 
 -- --------------------------------------------------------
 
@@ -69,7 +73,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
-(5, 'arbi h', 'hibiyatul@gmail.com', 'default.jpg', '$2y$10$fGxCSj5STu0c//eICM/XYOvnnr/zm5U2Rf/eHz5.wAcMZNXKU8w3u', 2, 1, 1609835525);
+(6, 'bobby malela hutagalung', 'macvermilion@gmail.com', 'default.jpg', '$2y$10$HV7ywluRAZUZl4Le3ksUt.K.f3pu4tczThWneSARnfu3cUmMzaeiy', 1, 1, 1609871710),
+(7, 'sri puspita dewi', 'sripuspitadewi@gmail.com', 'default.jpg', '$2y$10$O2RlTTuwJYOzkjJAw83Uw.ynBmD.7WUB.j4DcknBO6n35rrCFcJFC', 2, 1, 1615920682);
 
 -- --------------------------------------------------------
 
@@ -95,9 +100,9 @@ INSERT INTO `user_role` (`id`, `role`) VALUES
 --
 
 --
--- Indexes for table `arsip`
+-- Indexes for table `buku`
 --
-ALTER TABLE `arsip`
+ALTER TABLE `buku`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -117,16 +122,16 @@ ALTER TABLE `user_role`
 --
 
 --
--- AUTO_INCREMENT for table `arsip`
+-- AUTO_INCREMENT for table `buku`
 --
-ALTER TABLE `arsip`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+ALTER TABLE `buku`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user_role`

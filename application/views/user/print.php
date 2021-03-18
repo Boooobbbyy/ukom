@@ -17,7 +17,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url('assets/adminlte/'); ?>dist/css/adminlte.min.css">
     <!-- MyCSS-->
-    <link rel="stylesheet" href="<?= base_url(); ?>asset/css/style.css">
+    <link rel="stylesheet" href="<?= base_url('assets/adminlte/'); ?>style.css">
 
 </head>
 
@@ -41,11 +41,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <th scope="row"><?= $i++; ?></th>
                             <td><?= $ars['judul']; ?></td>
                             <td><?= $ars['jumlah']; ?></td>
-                            <td><?= $ars['rep']; ?>
-
-                            </td>
+                            <td><?= $ars['rep']; ?> </td>
                         </tr>
+
                     <?php endforeach; ?>
+                    <td>Jumlah <?= count($buku) - $sum; ?> <?= $sum ?></td>
                 </tbody>
             </table>
 

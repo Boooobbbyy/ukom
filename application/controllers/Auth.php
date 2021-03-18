@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Auth extends CI_Controller
 {
- 
+
     public function __construct()
     {
         parent::__construct();
@@ -42,8 +42,14 @@ class Auth extends CI_Controller
                         'email' =>  $user['email'],
                         'role_id' => $user['role_id']
                     ];
-                    $this->session->set_userdata($data);
-                    redirect('bobby');
+                    if ($user['role_id'] == 2) {
+                        $this->session->set_userdata($data);
+                        redirect('bobby');
+                    }
+                    if ($user['role_id'] == 1) {
+                        $this->session->set_userdata($data);
+                        redirect('user');
+                    }
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
                     Wrong password!
