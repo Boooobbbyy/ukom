@@ -63,7 +63,50 @@
                 <!-- ./col -->
             </div>
 
+            <div class="container">
 
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <label>Tambah Data Form</label>
+                            </div>
+                            <div class="card-body">
+                                <form action="" method="post">
+                                    <div class="form-group">
+                                        <label for="judul">Nama</label>
+                                        <input type="text" value="<?= $user['name']; ?>" class="form-control" id="judul" readonly name="judul">
+                                        <small class="text-danger"><?= form_error('judul'); ?></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="jumlah">Masukan</label>
+                                        <input type="text" class="form-control" id="jumlah" name="jumlah">
+                                        <small class="text-danger"><?= form_error('jumlah'); ?></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tanggal">Tanggal Masuk</label>
+                                        <input type="date" class="form-control" id="tanggal" name="tanggal">
+                                        <small class="text-danger"><?= form_error('tanggal'); ?></small>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="hidden" value="" class="form-control" id="rep" name="rep">
+                                        <small class="text-danger"><?= form_error('judul'); ?></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="hidden" value="0" class="form-control" id="res" name="res">
+                                        <small class="text-danger"><?= form_error('judul'); ?></small>
+                                    </div>
+                                    <button type="submit" name="tambah" class="btn btn-primary float-right">Tambah Data</button>
+                                </form>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
             <!-- ================================================================================================================================================ -->
 
             <!-- Main content -->

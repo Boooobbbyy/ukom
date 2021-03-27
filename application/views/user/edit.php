@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 mt-3">
-                        <a href="<?= base_url('bobby/tambah') ?>" class="btn btn-primary">Tambah Form</a>
+                        <a href="<?= base_url('Form/tambah') ?>" class="btn btn-primary">Tambah Form</a>
                     </div>
                 </div>
             </div>
@@ -39,9 +39,9 @@
                                 <td><?= $ars['jumlah']; ?></td>
                                 <td><?= $ars['rep']; ?></td>
                                 <td>
-                                    <a href="<?= base_url(); ?>bobby/ubahx/<?= $ars['id']; ?>" class="badge badge-success float-none">ubah</a>
-                                    <a href="<?= base_url(); ?>bobby/detail/<?= $ars['id']; ?>" class="badge badge-primary float-none">detail</a>
-                                    <a href="<?= base_url(); ?>bobby/hapus/<?= $ars['id']; ?>" class="badge badge-danger float-none" onclick="return confirm('yakin ?');">hapus</a>
+                                    <a href="<?= base_url(); ?>Form/ubahx/<?= $ars['id']; ?>" class="badge badge-success float-none">ubah</a>
+                                    <a href="<?= base_url(); ?>Form/detail/<?= $ars['id']; ?>" class="badge badge-primary float-none">detail</a>
+                                    <a href="<?= base_url(); ?>Form/hapus/<?= $ars['id']; ?>" class="badge badge-danger float-none" onclick="return confirm('yakin ?');">hapus</a>
 
                                 </td>
                             </tr>

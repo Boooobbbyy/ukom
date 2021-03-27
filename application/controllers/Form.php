@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Bobby extends CI_Controller
+class Form extends CI_Controller
 {
     public function __construct()
     {
@@ -92,7 +92,7 @@ class Bobby extends CI_Controller
         } else {
             $this->Buku_model->tambahDatabuku();
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('Bobby');
+            redirect('Form');
         }
     }
 
@@ -102,7 +102,7 @@ class Bobby extends CI_Controller
         $data['sum'] = $this->Buku_model->sum();
         $this->Buku_model->hapusDatabuku($id);
         $this->session->set_flashdata('flash', 'Dihapus');
-        redirect('Bobby');
+        redirect('Form');
     }
 
     public function detail($id)
@@ -137,7 +137,7 @@ class Bobby extends CI_Controller
         } else {
             $this->Buku_model->ubahbuku();
             $this->session->set_flashdata('flash', 'Diubah');
-            redirect('Bobby');
+            redirect('Form');
         }
     }
 }

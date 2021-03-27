@@ -53,12 +53,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <!-- Messages Dropdown Menu -->
-                <li class="nav-item">
-                    <a href="#" class="notification">
-                        <span>Inbox</span>
-                        <span class="badge"><?= count($buku) - $sum; ?></span>
-                    </a>
-                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                         <i class="fas fa-expand-arrows-alt"></i>
@@ -111,9 +106,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <ul class="nav nav-treeview">
 
                                 <li class="nav-item">
-                                    <a href="<?= base_url('user/tambah') ?>" class="nav-link active">
+                                    <a href="<?= base_url('user/index') ?>" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Input Form</p>
+                                        <p>Home</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">

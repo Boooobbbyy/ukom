@@ -87,7 +87,7 @@ class User extends CI_Controller
         } else {
             $this->Buku_model->tambahDatabuku();
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('Bobby');
+            redirect('Form');
         }
     }
 }

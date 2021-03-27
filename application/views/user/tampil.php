@@ -17,7 +17,7 @@
      <div class="container">
          <div class="row">
              <div class="col-md-6 mt-3">
-                 <a href="<?= base_url('bobby/print') ?>" class="btn btn-primary">print Form</a>
+                 <a href="<?= base_url('Form/print') ?>" class="btn btn-primary">print Form</a>
              </div>
          </div>
      </div>
