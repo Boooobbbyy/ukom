@@ -26,14 +26,19 @@
                          <form action="" method="post">
                              <input type="hidden" name="id" value="<?= $mahasiswa["id"];  ?>">
                              <div class="form-group">
-                                 <label for="judul">Nama </label>
-                                 <input value=" <?= $user['name']; ?>" type="text" class="form-control" id="judul" name="judul" readonly>
-                                 <small class="text-danger"><?= form_error('judul'); ?></small>
+                                 <label for="nama">Nama </label>
+                                 <input value=" <?= $user['name']; ?>" type="text" class="form-control" id="nama" name="nama" readonly>
+                                 <small class="text-danger"><?= form_error('nama'); ?></small>
                              </div>
                              <div class="form-group">
-                                 <label for="jumlah">komen</label>
-                                 <input value="<?= $mahasiswa['jumlah']; ?> " type="text" class="form-control" id="jumlah" name="jumlah" readonly>
-                                 <small class="text-danger"><?= form_error('jumlah'); ?></small>
+                                 <label for="top">Progress</label>
+                                 <input value="<?= $mahasiswa['top']; ?> " type="text" class="form-control" id="top" name="top">
+                                 <small class="text-danger"><?= form_error('top'); ?></small>
+                             </div>
+                             <div class="form-group">
+                                 <label for="harga">Harga</label>
+                                 <input value="<?= $mahasiswa['harga']; ?> " type="text" class="form-control" id="harga" name="harga" readonly>
+                                 <small class="text-danger"><?= form_error('harga'); ?></small>
                              </div>
                              <div class="form-group">
                                  <label for="tanggal">Tanggal Masuk</label>
@@ -42,12 +47,25 @@
 
                              </div>
                              <div class="form-group">
-                                 <label for="rep">Reply </label>
-                                 <input value=" <?= $mahasiswa['rep']; ?>" type="text" class="form-control" id="rep" name="rep">
+                                 <label for="rep">Status Pembayaran</label>
+                                 <small><?= $mahasiswa['rep']; ?></small>
+                                 <select autocomplete="off" autofocus="on" class="form-control custom-select " id="rep" name="rep">
+                                     <option selected disabled> Pilih salah satu </option>
+                                     <option value="Lunas">Lunas</option>
+                                     <option value="Belum Lunas">Belum Lunas</option>
+
+                                 </select>
                                  <small class="text-danger"><?= form_error('rep'); ?></small>
                              </div>
                              <div class="form-group">
-                                 <input type="hidden" value="1" class="form-control" id="res" name="res">
+                                 <label for="res">Status Kursus</label>
+                                 <small><?= $mahasiswa['res']; ?></small>
+                                 <select autocomplete="off" autofocus="on" class="form-control custom-select " id="res" name="res">
+                                     <option selected disabled> Pilih salah satu </option>
+                                     <option value="1">Lulus</option>
+                                     <option value="0">Belum Lulus</option>
+
+                                 </select>
                              </div>
                              <button type="submit" name="ubah" class="btn btn-primary float-right">ubah Data</button>
                          </form>

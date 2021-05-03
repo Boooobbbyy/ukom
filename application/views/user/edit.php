@@ -25,19 +25,21 @@
                         <tr>
                             <th scope="col">No</th>
                             <th scope="col">Nama </th>
-                            <th scope="col">Masukan</th>
-                            <th scope="col">Reply</th>
+                            <th scope="col">Progress</th>
+                            <th scope="col">Harga</th>
+                            <th scope="col">Pembayaran</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $i = 1; ?>
-                        <?php foreach ($buku as $ars) : ?>
+                        <?php foreach ($info as $ars) : ?>
                             <tr>
                                 <th scope="row"><?= $i++; ?></th>
-                                <td><?= $ars['judul']; ?></td>
-                                <td><?= $ars['jumlah']; ?></td>
-                                <td><?= $ars['rep']; ?></td>
+                                <td><?= $ars['nama']; ?></td>
+                                <td><?= $ars['top']; ?>%</td>
+                                <td><?= $ars['harga'] * 1000; ?></td>
+                                <td><?= $ars['rep']; ?>
                                 <td>
                                     <a href="<?= base_url(); ?>Form/ubahx/<?= $ars['id']; ?>" class="badge badge-success float-none">ubah</a>
                                     <a href="<?= base_url(); ?>Form/detail/<?= $ars['id']; ?>" class="badge badge-primary float-none">detail</a>

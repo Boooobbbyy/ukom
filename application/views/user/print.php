@@ -36,16 +36,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </thead>
                 <tbody>
                     <?php $i = 1; ?>
-                    <?php foreach ($buku as $ars) : ?>
+                    <?php foreach ($info as $ars) : ?>
                         <tr>
                             <th scope="row"><?= $i++; ?></th>
-                            <td><?= $ars['judul']; ?></td>
-                            <td><?= $ars['jumlah']; ?></td>
+                            <td><?= $ars['nama']; ?></td>
+                            <td><?= $ars['harga']; ?></td>
                             <td><?= $ars['rep']; ?> </td>
                         </tr>
 
                     <?php endforeach; ?>
-                    <td>Jumlah <?= count($buku) - $sum; ?> <?= $sum ?></td>
+                    <td>Jumlah <?= count($info); ?></td>
                 </tbody>
             </table>
 

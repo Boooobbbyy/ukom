@@ -25,14 +25,19 @@
                      <div class="card-body">
                          <form action="" method="post">
                              <div class="form-group">
-                                 <label for="judul">Nama</label>
-                                 <input type="text" value="<?= $user['name']; ?>" class="form-control" id="judul" name="judul">
-                                 <small class="text-danger"><?= form_error('judul'); ?></small>
+                                 <label for="nama">Nama</label>
+                                 <input type="text" value="<?= $user['name']; ?>" class="form-control" id="nama" name="nama">
+                                 <small class="text-danger"><?= form_error('nama'); ?></small>
                              </div>
                              <div class="form-group">
-                                 <label for="jumlah">Masukan</label>
-                                 <input type="text" class="form-control" id="jumlah" name="jumlah">
-                                 <small class="text-danger"><?= form_error('jumlah'); ?></small>
+                                 <label for="top">Topik</label>
+                                 <input type="text" class="form-control" id="top" name="top">
+                                 <small class="text-danger"><?= form_error('top'); ?></small>
+                             </div>
+                             <div class="form-group">
+                                 <label for="harga">Masukan</label>
+                                 <input type="text" class="form-control" id="harga" name="harga">
+                                 <small class="text-danger"><?= form_error('harga'); ?></small>
                              </div>
                              <div class="form-group">
                                  <label for="tanggal">Tanggal Masuk</label>
@@ -42,11 +47,11 @@
 
                              <div class="form-group">
                                  <input type="hidden" value="" class="form-control" id="rep" name="rep">
-                                 <small class="text-danger"><?= form_error('judul'); ?></small>
+                                 <small class="text-danger"><?= form_error('nama'); ?></small>
                              </div>
                              <div class="form-group">
                                  <input type="hidden" value="0" class="form-control" id="res" name="res">
-                                 <small class="text-danger"><?= form_error('judul'); ?></small>
+                                 <small class="text-danger"><?= form_error('nama'); ?></small>
                              </div>
                              <button type="submit" name="tambah" class="btn btn-primary float-right">Tambah Data</button>
                          </form>

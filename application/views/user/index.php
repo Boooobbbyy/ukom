@@ -18,9 +18,9 @@
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3><?= $sum ?></h3>
+                            <h3> <?= $sum ?> </h3>
 
-                            <p>Reply</p>
+                            <p>Murid Lulus</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-bag"></i>
@@ -33,9 +33,9 @@
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3><?= count($buku) - $sum; ?><sup style="font-size: 20px"></sup></h3>
+                            <h3><?= count($info) - $sum; ?><sup style="font-size: 20px"></sup></h3>
 
-                            <p>Belum di Reply</p>
+                            <p>murid belajar saat ini</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
@@ -48,9 +48,9 @@
                     <!-- small box -->
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3><?= count($buku); ?></h3>
+                            <h3><?= count($info); ?></h3>
 
-                            <p>Jumlah Keluhan</p>
+                            <p>Jumlah murid mendaftar</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-person-add"></i>
@@ -74,14 +74,26 @@
                             <div class="card-body">
                                 <form action="" method="post">
                                     <div class="form-group">
-                                        <label for="judul">Nama</label>
-                                        <input type="text" value="<?= $user['name']; ?>" class="form-control" id="judul" readonly name="judul">
-                                        <small class="text-danger"><?= form_error('judul'); ?></small>
+                                        <label for="nama">Nama</label>
+                                        <input type="text" value="<?= $user['name']; ?>" class="form-control" id="nama" readonly name="nama">
+                                        <small class="text-danger"><?= form_error('nama'); ?></small>
                                     </div>
                                     <div class="form-group">
-                                        <label for="jumlah">Masukan</label>
-                                        <input type="text" class="form-control" id="jumlah" name="jumlah">
-                                        <small class="text-danger"><?= form_error('jumlah'); ?></small>
+
+                                        <input type="hidden" value="0" class="form-control" id="top" name="top">
+                                        <small class="text-danger"><?= form_error('top'); ?></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="harga">Kursus</label>
+                                        <select autocomplete="off" autofocus="on" class="form-control custom-select " id="harga" name="harga">
+                                            <option selected disabled> Pilih salah satu </option>
+                                            <option value="600">Matematika</option>
+                                            <option value="789">Bahasa Inggris</option>
+                                            <option value="545">Bahasa jepang</option>
+                                            <option value="500">Biologi</option>
+                                            <option value="700">Fisika</option>
+                                        </select>
+                                        <small class="text-danger"><?= form_error('harga'); ?></small>
                                     </div>
                                     <div class="form-group">
                                         <label for="tanggal">Tanggal Masuk</label>
@@ -90,12 +102,12 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="hidden" value="" class="form-control" id="rep" name="rep">
-                                        <small class="text-danger"><?= form_error('judul'); ?></small>
+                                        <input type="hidden" value="Belum Lunas" class="form-control" id="rep" name="rep">
+                                        <small class="text-danger"><?= form_error('nama'); ?></small>
                                     </div>
                                     <div class="form-group">
                                         <input type="hidden" value="0" class="form-control" id="res" name="res">
-                                        <small class="text-danger"><?= form_error('judul'); ?></small>
+                                        <small class="text-danger"><?= form_error('nama'); ?></small>
                                     </div>
                                     <button type="submit" name="tambah" class="btn btn-primary float-right">Tambah Data</button>
                                 </form>

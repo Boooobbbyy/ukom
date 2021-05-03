@@ -1,4 +1,10 @@
  <!-- Content Wrapper. Contains page content -->
+ <?php
+    $url = file_get_contents('http://www.omdbapi.com/?apikey=c259a5e8&i=tt6342474');
+    $data = json_decode($url, true);
+
+
+    ?>
  <div class="content-wrapper">
      <!-- Content Header (Page header) -->
      <div class="content-header">
@@ -30,17 +36,19 @@
                  <tr>
                      <th scope="col">No</th>
                      <th scope="col">Nama </th>
-                     <th scope="col">Masukan</th>
-                     <th scope="col">Reply</th>
+                     <th scope="col">Progress</th>
+                     <th scope="col">Harga</th>
+                     <th scope="col">Pembayaran</th>
                  </tr>
              </thead>
              <tbody>
                  <?php $i = 1; ?>
-                 <?php foreach ($buku as $ars) : ?>
+                 <?php foreach ($info as $ars) : ?>
                      <tr>
                          <th scope="row"><?= $i++; ?></th>
-                         <td><?= $ars['judul']; ?></td>
-                         <td><?= $ars['jumlah']; ?></td>
+                         <td><?= $ars['nama']; ?></td>
+                         <td><?= $ars['top']; ?>%</td>
+                         <td><?= $ars['harga'] * 1000; ?></td>
                          <td><?= $ars['rep']; ?>
 
                          </td>

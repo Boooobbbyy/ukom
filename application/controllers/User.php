@@ -6,36 +6,47 @@ class User extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Buku_model');
+        $this->load->model('Info_model');
 
         $this->load->library('form_validation');
     }
 
     public function index()
     {
-        $data['sum'] = $this->Buku_model->sum();
+        $data['info'] = $this->Info_model->getALlinfo();
+        $data['sum'] = $this->Info_model->sum();
         $data['title'] = 'BPPD ';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
+        $this->form_validation->set_rules('nama', 'nama', 'required');
+        $this->form_validation->set_rules('harga', 'harga', 'required');
+        $this->form_validation->set_rules('tanggal', 'Tanggal Masuk', 'required');
+        $this->form_validation->set_rules('top', 'top', 'required');
+        $this->form_validation->set_rules('res', 'res', 'required');
 
-        $data['buku'] = $this->Buku_model->getALlbuku();
-        if ($this->input->post('cari')) {
-            $data['buku'] = $this->Buku_model->cariDatabuku();
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/uhead', $data);
+            $this->load->view('user/index', $data);
+            $this->load->view('templates/ufoot', $data);
+        } else {
+            $this->Info_model->tambahDatainfo();
+            $this->session->set_flashdata('flash', 'Ditambahkan');
+            redirect('User');
         }
 
-        $this->load->view('templates/uhead', $data);
-        $this->load->view('user/index', $data);
-        $this->load->view('templates/ufoot', $data);
+        if ($this->input->post('cari')) {
+            $data['info'] = $this->Info_model->cariDatainfo();
+        }
     }
 
     public function tamp()
     {
         $data['title'] = 'BPPD ';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['sum'] = $this->Buku_model->sum();
-        $data['buku'] = $this->Buku_model->getALlbuku();
+        $data['sum'] = $this->Info_model->sum();
+        $data['info'] = $this->Info_model->getALlinfo();
         if ($this->input->post('cari')) {
-            $data['buku'] = $this->Buku_model->cariDatabuku();
+            $data['info'] = $this->Info_model->cariDatainfo();
         }
 
         $this->load->view('templates/uhead', $data);
@@ -47,10 +58,10 @@ class User extends CI_Controller
         $data['title'] = 'BPPD ';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $data['sum'] = $this->Buku_model->sum();
-        $data['buku'] = $this->Buku_model->getALlbuku();
+        $data['sum'] = $this->Info_model->sum();
+        $data['info'] = $this->Info_model->getALlinfo();
         if ($this->input->post('cari')) {
-            $data['buku'] = $this->Buku_model->cariDatabuku();
+            $data['info'] = $this->Info_model->cariDatainfo();
         }
 
 
@@ -59,24 +70,25 @@ class User extends CI_Controller
 
     public function detail($id)
     {
-        $data['buku'] = $this->Buku_model->getALlbuku();
-        $data['sum'] = $this->Buku_model->sum();
+        $data['info'] = $this->Info_model->getALlinfo();
+        $data['sum'] = $this->Info_model->sum();
         $data['title'] = 'Detail Form';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['mahasiswa'] = $this->Buku_model->getbukuById($id);
+        $data['mahasiswa'] = $this->Info_model->getinfoById($id);
         $this->load->view('templates/uhead', $data);
         $this->load->view('user/detail', $data);
         $this->load->view('templates/ufoot', $data);
     }
     public function tambah()
     {
-        $data['buku'] = $this->Buku_model->getALlbuku();
+        $data['info'] = $this->Info_model->getALlinfo();
         $data['title'] = 'Tambah Form ';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['sum'] = $this->Buku_model->sum();
-        $this->form_validation->set_rules('judul', 'Judul Buku', 'required');
-        $this->form_validation->set_rules('jumlah', 'jumlah', 'required');
+        $data['sum'] = $this->Info_model->sum();
+        $this->form_validation->set_rules('nama', 'nama', 'required');
+        $this->form_validation->set_rules('harga', 'harga', 'required');
         $this->form_validation->set_rules('tanggal', 'Tanggal Masuk', 'required');
+        $this->form_validation->set_rules('top', 'top', 'required');
         $this->form_validation->set_rules('rep', 'rep', 'required');
         $this->form_validation->set_rules('res', 'res', 'required');
 
@@ -85,7 +97,7 @@ class User extends CI_Controller
             $this->load->view('user/tambah', $data);
             $this->load->view('templates/ufoot', $data);
         } else {
-            $this->Buku_model->tambahDatabuku();
+            $this->Info_model->tambahDatainfo();
             $this->session->set_flashdata('flash', 'Ditambahkan');
             redirect('Form');
         }

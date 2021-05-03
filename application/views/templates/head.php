@@ -56,7 +56,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item">
                     <a href="<?= base_url('Form/edit') ?>" class="notification">
                         <span>Inbox</span>
-                        <span class="badge"><?= count($buku) - $sum; ?></span>
+                        <span class="badge"><?= count($info) - $sum; ?></span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -78,7 +78,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Brand Logo -->
             <a href="<?= base_url('Form/index') ?>" class="brand-link">
                 <img src="<?= base_url('assets/adminlte/'); ?>dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">BPPD</span>
+                <span class="brand-text font-weight-light">SiEKA</span>
             </a>
 
             <!-- Sidebar -->

@@ -1,7 +1,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="<?= base_url('assets/adminlte'); ?>/index2.html"><b>BPPD </b>Lampung</a>
+            <a href="<?= base_url('assets/adminlte'); ?>/index2.html"><b>SiEKA </b>Lampung</a>
         </div>
         <!-- /.login-logo -->
         <div class="card">
@@ -32,9 +32,7 @@
                         <div class="col-8">
                             <div class="icheck-primary">
                                 <input type="checkbox" id="remember">
-                                <label for="remember">
-                                    Remember Me
-                                </label>
+
                             </div>
                         </div>
                         <!-- /.col -->
@@ -47,9 +45,6 @@
 
 
 
-                <p class="mb-1">
-                    <a href="forgot-password.html">I forgot my password</a>
-                </p>
                 <p class="mb-0">
                     <a href="<?= base_url('auth/registration') ?>" class="text-center">Register a new membership</a>
                 </p>

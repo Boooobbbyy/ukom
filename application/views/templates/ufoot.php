@@ -14,7 +14,7 @@
         Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <strong>Pembayaran bisa ke <a href="https://wa.me/+6283128900630">Amanda Atika</a></strong>
 </footer>
 </div>
 <!-- ./wrapper -->
