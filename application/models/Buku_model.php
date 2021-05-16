@@ -13,6 +13,7 @@ class Buku_model extends CI_Model
             "judul" => $this->input->post('judul', true),
             "jumlah" => $this->input->post('jumlah', true),
             "tanggal" => $this->input->post('tanggal', true),
+            "top" => $this->input->post('top', true),
             "rep" => $this->input->post('rep', true),
             "res" => $this->input->post('res', true),
 
@@ -44,6 +45,7 @@ class Buku_model extends CI_Model
             "judul" => $this->input->post('judul', true),
             "jumlah" => $this->input->post('jumlah', true),
             "tanggal" => $this->input->post('tanggal', true),
+            "top" => $this->input->post('top', true),
             "rep" => $this->input->post('rep', true),
             "res" => $this->input->post('res', true),
         ];
@@ -54,7 +56,7 @@ class Buku_model extends CI_Model
     public function cariDatabuku()
     {
         $keyword = $this->input->post('cari', true);
-        $this->db->like('judul', $keyword);
+        $this->db->like('top', $keyword);
         return $this->db->get('buku')->result_array();
     }
 }

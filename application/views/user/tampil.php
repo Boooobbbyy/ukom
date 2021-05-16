@@ -30,6 +30,7 @@
                  <tr>
                      <th scope="col">No</th>
                      <th scope="col">Nama </th>
+                     <th scope="col">Topik</th>
                      <th scope="col">Masukan</th>
                      <th scope="col">Reply</th>
                  </tr>
@@ -40,6 +41,7 @@
                      <tr>
                          <th scope="row"><?= $i++; ?></th>
                          <td><?= $ars['judul']; ?></td>
+                         <td><?= $ars['top']; ?></td>
                          <td><?= $ars['jumlah']; ?></td>
                          <td><?= $ars['rep']; ?>
 

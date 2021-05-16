@@ -13,19 +13,30 @@ class Form extends CI_Controller
 
     public function index()
     {
+        $data['buku'] = $this->Buku_model->getALlbuku();
         $data['sum'] = $this->Buku_model->sum();
         $data['title'] = 'BPPD ';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
+        $this->form_validation->set_rules('judul', 'Judul Buku', 'required');
+        $this->form_validation->set_rules('jumlah', 'jumlah', 'required');
+        $this->form_validation->set_rules('tanggal', 'Tanggal Masuk', 'required');
+        $this->form_validation->set_rules('top', 'top', 'required');
+        $this->form_validation->set_rules('res', 'res', 'required');
 
-        $data['buku'] = $this->Buku_model->getALlbuku();
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/head', $data);
+            $this->load->view('user/index', $data);
+            $this->load->view('templates/foot', $data);
+        } else {
+            $this->Buku_model->tambahDatabuku();
+            $this->session->set_flashdata('flash', 'Ditambahkan');
+            redirect('Form');
+        }
+
         if ($this->input->post('cari')) {
             $data['buku'] = $this->Buku_model->cariDatabuku();
         }
-
-        $this->load->view('templates/head', $data);
-        $this->load->view('user/index', $data);
-        $this->load->view('templates/foot', $data);
     }
 
     public function edit()
@@ -82,7 +93,7 @@ class Form extends CI_Controller
         $this->form_validation->set_rules('judul', 'Judul Buku', 'required');
         $this->form_validation->set_rules('jumlah', 'jumlah', 'required');
         $this->form_validation->set_rules('tanggal', 'Tanggal Masuk', 'required');
-
+        $this->form_validation->set_rules('top', 'top', 'required');
         $this->form_validation->set_rules('res', 'res', 'required');
 
         if ($this->form_validation->run() == false) {
@@ -102,7 +113,7 @@ class Form extends CI_Controller
         $data['sum'] = $this->Buku_model->sum();
         $this->Buku_model->hapusDatabuku($id);
         $this->session->set_flashdata('flash', 'Dihapus');
-        redirect('Form');
+        redirect('Form/edit');
     }
 
     public function detail($id)
@@ -128,7 +139,7 @@ class Form extends CI_Controller
         $this->form_validation->set_rules('judul', 'Judul Buku', 'required');
         $this->form_validation->set_rules('jumlah', 'jumlah', 'required');
         $this->form_validation->set_rules('tanggal', 'Tanggal Masuk', 'required');
-
+        $this->form_validation->set_rules('top', 'top', 'required');
         $this->form_validation->set_rules('res', 'res', 'required');
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/head', $data);
@@ -137,7 +148,7 @@ class Form extends CI_Controller
         } else {
             $this->Buku_model->ubahbuku();
             $this->session->set_flashdata('flash', 'Diubah');
-            redirect('Form');
+            redirect('Form/edit');
         }
     }
 }

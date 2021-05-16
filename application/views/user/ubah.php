@@ -31,6 +31,11 @@
                                  <small class="text-danger"><?= form_error('judul'); ?></small>
                              </div>
                              <div class="form-group">
+                                 <label for="top">Topik</label>
+                                 <input value="<?= $mahasiswa['top']; ?> " type="text" class="form-control" id="top" name="top" readonly>
+                                 <small class="text-danger"><?= form_error('top'); ?></small>
+                             </div>
+                             <div class="form-group">
                                  <label for="jumlah">komen</label>
                                  <input value="<?= $mahasiswa['jumlah']; ?> " type="text" class="form-control" id="jumlah" name="jumlah" readonly>
                                  <small class="text-danger"><?= form_error('jumlah'); ?></small>

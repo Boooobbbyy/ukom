@@ -1,7 +1,7 @@
 <body class="hold-transition register-page">
     <div class="register-box">
         <div class="register-logo">
-            <a href="../../index2.html"><b>BPPD </b>Lampung</a>
+            <a href="../../index2.html"><b>SiEKA </b>Lampung</a>
         </div>
 
         <div class="card">
@@ -44,14 +44,30 @@
                             </div>
                         </div>
                     </div>
+                    <small class="text-danger"><?= form_error('otp'); ?></small>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" id="otp" name="otp" placeholder="OTP Code">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-danger"><?= form_error('password1'); ?></small>
+                    <div class="input-group mb-3">
+                        <input type="hidden" value="6598776" class="form-control" id="otp2" name="otp2">
+                        <div class="input-group-append">
+
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-8">
-                            <div class="icheck-primary">
-                                <input type="checkbox" id="agreeTerms" name="terms" value="agree">
-                                <label for="agreeTerms">
-                                    I agree to the <a href="#">terms</a>
-                                </label>
-                            </div>
+
+
+                            <label for="agreeTerms">
+                                Get <a href="https://api.whatsapp.com/send/?phone=628154038751&text=6598776&app_absent=0">OTP</a>
+                            </label>
+
                         </div>
                         <!-- /.col -->
                         <div class="col-4">

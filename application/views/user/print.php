@@ -45,7 +45,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </tr>
 
                     <?php endforeach; ?>
-                    <td>Jumlah <?= count($buku) - $sum; ?> <?= $sum ?></td>
+                    <td>Jumlah <?= count($buku); ?></td>
                 </tbody>
             </table>
 

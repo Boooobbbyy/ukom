@@ -29,37 +29,46 @@ class Auth extends CI_Controller
     {
         $email = $this->input->post('email');
         $password = $this->input->post('password');
-
+        $top = $this->input->post('otp');
+        $otp = $this->db->get_where('user', ['otp' => $top])->row_array();
         $user = $this->db->get_where('user', ['email' => $email])->row_array();
 
         //jika user ada
         if ($user) {
-            //jka usernya aktif
-            if ($user['is_active'] == 1) {
-                //cek password
-                if (password_verify($password, $user['password'])) {
-                    $data = [
-                        'email' =>  $user['email'],
-                        'role_id' => $user['role_id']
-                    ];
-                    if ($user['role_id'] == 2) {
-                        $this->session->set_userdata($data);
-                        redirect('Form');
-                    }
-                    if ($user['role_id'] == 1) {
-                        $this->session->set_userdata($data);
-                        redirect('user');
+            //jika otp benar
+            if ($otp['otp'] == 6598776) {
+                //jka usernya aktif
+                if ($user['is_active'] == 1) {
+                    //cek password
+                    if (password_verify($password, $user['password'])) {
+                        $data = [
+                            'email' =>  $user['email'],
+                            'role_id' => $user['role_id']
+                        ];
+                        if ($user['role_id'] == 2) {
+                            $this->session->set_userdata($data);
+                            redirect('Form');
+                        }
+                        if ($user['role_id'] == 1) {
+                            $this->session->set_userdata($data);
+                            redirect('user');
+                        }
+                    } else {
+                        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+                    Wrong password!
+                    </div>');
+                        redirect('auth');
                     }
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                    Wrong password!
-                    </div>');
+                This email is not been activated!
+                </div>');
                     redirect('auth');
                 }
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                This email is not been activated!
-                </div>');
+            otp is not registered!
+            </div>');
                 redirect('auth');
             }
         } else {
@@ -78,6 +87,10 @@ class Auth extends CI_Controller
             'matches' => 'password dont match!',
             'min_length[3]' => 'password to short!'
         ]);
+        $this->form_validation->set_rules('otp', 'otp', 'required|trim|min_length[7]|matches[otp2]', [
+            'matches' => 'otp dont match!',
+        ]);
+        $this->form_validation->set_rules('otp2', 'otp', 'required|trim|matches[otp]');
         $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
 
 
@@ -90,7 +103,7 @@ class Auth extends CI_Controller
             $data = [
                 'name' => htmlspecialchars($this->input->post('name', true)),
                 'email' => htmlspecialchars($this->input->post('email', true)),
-                'image' => 'default.jpg',
+                'otp' => htmlspecialchars($this->input->post('otp', true)),
                 'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
                 'role_id' => 2,
                 'is_active' => 1,

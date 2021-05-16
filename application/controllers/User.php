@@ -13,19 +13,30 @@ class User extends CI_Controller
 
     public function index()
     {
+        $data['buku'] = $this->Buku_model->getALlbuku();
         $data['sum'] = $this->Buku_model->sum();
         $data['title'] = 'BPPD ';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
+        $this->form_validation->set_rules('judul', 'Judul Buku', 'required');
+        $this->form_validation->set_rules('jumlah', 'jumlah', 'required');
+        $this->form_validation->set_rules('tanggal', 'Tanggal Masuk', 'required');
+        $this->form_validation->set_rules('top', 'top', 'required');
+        $this->form_validation->set_rules('res', 'res', 'required');
 
-        $data['buku'] = $this->Buku_model->getALlbuku();
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/uhead', $data);
+            $this->load->view('user/index', $data);
+            $this->load->view('templates/ufoot', $data);
+        } else {
+            $this->Buku_model->tambahDatabuku();
+            $this->session->set_flashdata('flash', 'Ditambahkan');
+            redirect('User');
+        }
+
         if ($this->input->post('cari')) {
             $data['buku'] = $this->Buku_model->cariDatabuku();
         }
-
-        $this->load->view('templates/uhead', $data);
-        $this->load->view('user/index', $data);
-        $this->load->view('templates/ufoot', $data);
     }
 
     public function tamp()
@@ -77,6 +88,7 @@ class User extends CI_Controller
         $this->form_validation->set_rules('judul', 'Judul Buku', 'required');
         $this->form_validation->set_rules('jumlah', 'jumlah', 'required');
         $this->form_validation->set_rules('tanggal', 'Tanggal Masuk', 'required');
+        $this->form_validation->set_rules('top', 'top', 'required');
         $this->form_validation->set_rules('rep', 'rep', 'required');
         $this->form_validation->set_rules('res', 'res', 'required');
 

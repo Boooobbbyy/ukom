@@ -1,7 +1,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="<?= base_url('assets/adminlte'); ?>/index2.html"><b>BPPD </b>Lampung</a>
+            <a href="<?= base_url('assets/adminlte'); ?>/index2.html"><b>SiEKA </b>Lampung</a>
         </div>
         <!-- /.login-logo -->
         <div class="card">
@@ -27,14 +27,20 @@
                             </div>
                         </div>
                     </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" id="otp" name="otp" placeholder="OTP">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
                     <small class="text-danger"><?= form_error('password'); ?></small>
                     <div class="row">
                         <div class="col-8">
                             <div class="icheck-primary">
                                 <input type="checkbox" id="remember">
-                                <label for="remember">
-                                    Remember Me
-                                </label>
+
                             </div>
                         </div>
                         <!-- /.col -->
@@ -47,9 +53,6 @@
 
 
 
-                <p class="mb-1">
-                    <a href="forgot-password.html">I forgot my password</a>
-                </p>
                 <p class="mb-0">
                     <a href="<?= base_url('auth/registration') ?>" class="text-center">Register a new membership</a>
                 </p>

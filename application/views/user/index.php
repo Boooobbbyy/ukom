@@ -79,6 +79,11 @@
                                         <small class="text-danger"><?= form_error('judul'); ?></small>
                                     </div>
                                     <div class="form-group">
+                                        <label for="top">Topik</label>
+                                        <input type="text" class="form-control" id="top" name="top">
+                                        <small class="text-danger"><?= form_error('top'); ?></small>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="jumlah">Masukan</label>
                                         <input type="text" class="form-control" id="jumlah" name="jumlah">
                                         <small class="text-danger"><?= form_error('jumlah'); ?></small>
