@@ -33,12 +33,12 @@
                     </thead>
                     <tbody>
                         <?php $i = 1; ?>
-                        <?php foreach ($info as $ars) : ?>
+                        <?php foreach ($buku as $ars) : ?>
                             <tr>
                                 <th scope="row"><?= $i++; ?></th>
-                                <td><?= $ars['nama']; ?></td>
-                                <td><?= $ars['top']; ?>%</td>
-                                <td><?= $ars['harga'] * 1000; ?></td>
+                                <td><?= $ars['judul']; ?></td>
+                                <td><?= $ars['top']; ?></td>
+                                <td><?= $ars['jumlah']; ?></td>
                                 <td><?= $ars['rep']; ?>
                                 <td>
                                     <a href="<?= base_url(); ?>Form/ubahx/<?= $ars['id']; ?>" class="badge badge-success float-none">ubah</a>

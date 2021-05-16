@@ -65,7 +65,7 @@
 
 
                             <label for="agreeTerms">
-                                Get <a href="https://api.whatsapp.com/send/?phone=628154038751&text=6598776&app_absent=0">OTP</a>
+                                Get <a href="https://api.whatsapp.com/send/?phone=628154038751&text=AkjksjubcjbUONHG9886BVAK&app_absent=0">OTP</a>
                             </label>
 
                         </div>

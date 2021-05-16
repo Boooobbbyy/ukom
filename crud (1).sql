@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2021 at 11:04 PM
+-- Generation Time: May 16, 2021 at 08:52 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -34,22 +34,21 @@ CREATE TABLE `buku` (
   `jumlah` varchar(255) NOT NULL,
   `tanggal` date NOT NULL,
   `rep` varchar(255) NOT NULL,
-  `res` int(128) NOT NULL
+  `res` int(128) NOT NULL,
+  `top` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `buku`
 --
 
-INSERT INTO `buku` (`id`, `judul`, `jumlah`, `tanggal`, `rep`, `res`) VALUES
-(1, ' sri puspita dewi', 'hiya hiya hiya ini komen yak    ', '2021-03-25', 'komentar1', 1),
-(2, ' sri puspita dewi', 'testetetetet      ', '2021-03-15', '    teretetet', 1),
-(6, ' sri puspita dewi', 'aasasfad  ', '2021-03-16', '  hiyaa', 1),
-(7, ' sri puspita dewi', 'asdasd  ', '2021-03-17', '  test', 1),
-(13, ' sri puspita dewi', 'scsc ', '2021-03-31', ' &lt;3', 1),
-(17, ' sri puspita dewi', 'asdsad  ', '2021-03-31', '  tesst', 1),
-(18, 'sri puspita dewi', 'caya', '2021-03-22', '', 0),
-(19, 'sri puspita dewi', '4asas', '2021-03-25', '', 0);
+INSERT INTO `buku` (`id`, `judul`, `jumlah`, `tanggal`, `rep`, `res`, `top`) VALUES
+(37, ' sri puspita dewi', 'fuitt', '2021-05-16', 'aaa', 1, 'keuangan'),
+(38, ' sri puspita dewi', 'uang', '2021-05-11', 'sss', 1, 'keuangan'),
+(39, ' sri puspita dewi', 'kere', '2021-05-20', 'ddd', 1, 'keuangan'),
+(40, ' sri puspita dewi', 'bokek', '2021-05-16', 'fff', 1, 'keuangan'),
+(41, ' sri puspita dewi', 'abis', '2021-05-05', 'sdfsd', 1, 'keuangan'),
+(42, ' sri puspita dewi', 'bu', '2021-05-23', ' ggg', 1, 'keuangan');
 
 -- --------------------------------------------------------
 
@@ -61,20 +60,26 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `name` varchar(128) NOT NULL,
   `email` varchar(128) NOT NULL,
-  `image` varchar(128) NOT NULL,
   `password` varchar(256) NOT NULL,
   `role_id` int(11) NOT NULL,
   `is_active` int(1) NOT NULL,
-  `date_created` int(11) NOT NULL
+  `date_created` int(11) NOT NULL,
+  `otp` int(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
-(6, 'bobby malela hutagalung', 'macvermilion@gmail.com', 'default.jpg', '$2y$10$HV7ywluRAZUZl4Le3ksUt.K.f3pu4tczThWneSARnfu3cUmMzaeiy', 1, 1, 1609871710),
-(7, 'sri puspita dewi', 'sripuspitadewi@gmail.com', 'default.jpg', '$2y$10$O2RlTTuwJYOzkjJAw83Uw.ynBmD.7WUB.j4DcknBO6n35rrCFcJFC', 2, 1, 1615920682);
+INSERT INTO `user` (`id`, `name`, `email`, `password`, `role_id`, `is_active`, `date_created`, `otp`) VALUES
+(6, 'bobby malela hutagalung', 'macvermilion@gmail.com', '$2y$10$HV7ywluRAZUZl4Le3ksUt.K.f3pu4tczThWneSARnfu3cUmMzaeiy', 1, 1, 1609871710, 6598776),
+(7, 'sri puspita dewi', 'sripuspitadewi@gmail.com', '$2y$10$O2RlTTuwJYOzkjJAw83Uw.ynBmD.7WUB.j4DcknBO6n35rrCFcJFC', 2, 1, 1615920682, 6598776),
+(8, 'bobby malela hutagalung', 'macvermailion@gmail.com', '$2y$10$7ptsuGKMINPbxTwpCMBk2OnU0C2kB5.I9CJlW13qGU0s2TNi8UxYO', 2, 1, 1617971596, 6598776),
+(9, 'bobby malela hutagalung', 'macvermiliona@gmail.com', '$2y$10$2pKWce.caDUwNdm5FPF7g.rJpaayDv1oTvPpvuI.TcrdvULghv0bu', 1, 1, 1618028243, 6598776),
+(10, 'asdasd', 'contoh@gmail.com', '$2y$10$pt8oW.xG0Dsfb/mz6Qs.M.A/51z0ZB3UNOzCqUwnA4Fi13RsoVBsy', 1, 1, 1618028719, 6598776),
+(11, 'bobby malela hutagalung', 'aad@gmail.com', '$2y$10$8U2g4uKdkffleNeY/pij/exBl/a9axSyKwPF8YaE/mqrLtKOLqvbW', 1, 1, 1620033571, 6598776),
+(12, 'aaa', 'asas@gad.vf', '$2y$10$mnOKrRsNOMCOe9J/tGf/NOD/EVTm4fDxJl3S8GvdPbwCcV00qF/oW', 2, 1, 1621186562, 6598776),
+(13, 'asda', 'sss@g.vo', '$2y$10$DMDJW7ypMelZ1QlNulkwTewqTnSUDh0yYfgQFr2w2uS1iIDOrc9Ye', 2, 1, 1621189776, 6598776);
 
 -- --------------------------------------------------------
 
@@ -125,13 +130,13 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `user_role`
