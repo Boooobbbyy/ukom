@@ -8,7 +8,7 @@ class Form extends CI_Controller
         parent::__construct();
         $this->load->model('Buku_model');
         $this->load->model('Us_model');
-
+        $this->load->model('Lupa_model');
         $this->load->library('form_validation');
     }
 
@@ -199,5 +199,47 @@ class Form extends CI_Controller
             $this->session->set_flashdata('flash', 'Diubah');
             redirect('Form/editus');
         }
+    }
+
+    public function forgot()
+    {
+
+
+        $data['title'] = 'Registration';
+        $this->load->view('templates/auth_header', $data);
+        $this->load->view('auth/forgot');
+        $this->load->view('templates/auth_footer');
+    }
+    public function tambhL()
+    {
+
+
+        $this->form_validation->set_rules('name', 'name', 'required');
+        $this->form_validation->set_rules('email', 'email', 'required');
+
+
+        $this->Lupa_model->tambahDatalupa();
+        $this->session->set_flashdata('flash', 'Ditambahkan');
+        redirect('Auth');
+    }
+
+    public function editL()
+    {
+
+        $data['title'] = 'BPPD ';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['users'] = $this->Lupa_model->getlupa();
+
+        $this->load->view('templates/headus', $data);
+        $this->load->view('user/Llupa', $data);
+        $this->load->view('templates/foot', $data);
+    }
+    public function hapusL($id)
+    {
+        $data['lupa'] = $this->Lupa_model->getlupa();
+
+        $this->Lupa_model->hapusDatalupa($id);
+        $this->session->set_flashdata('flash', 'Dihapus');
+        redirect('Form/editL');
     }
 }

@@ -128,4 +128,32 @@ class Auth extends CI_Controller
             </div>');
         redirect('auth');
     }
+
+    //=================================================================================================================
+
+    public function lupa()
+    {
+        $this->form_validation->set_rules('name', 'name', 'required|trim');
+        $this->form_validation->set_rules('email', 'email', 'required|trim|valid_email|is_unique[user.email]');
+
+
+        if ($this->form_validation->run() == false) {
+            $data['title'] = 'Lupa';
+            $this->load->view('templates/auth_header', $data);
+            $this->load->view('auth/forgot');
+            $this->load->view('templates/auth_footer');
+        } else {
+            $data = [
+                'name' => htmlspecialchars($this->input->post('name', true)),
+                'email' => htmlspecialchars($this->input->post('email', true)),
+
+            ];
+
+            $this->db->insert('lupa', $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+            Akun telah di buat
+            </div>');
+            redirect('auth');
+        }
+    }
 }

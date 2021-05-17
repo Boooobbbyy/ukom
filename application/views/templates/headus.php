@@ -119,6 +119,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <p>users</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('Form/editL'); ?>" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Lupa Password</p>
+                                    </a>
+                                </li>
 
                             </ul>
                         </li>

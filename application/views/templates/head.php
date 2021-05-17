@@ -18,7 +18,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="<?= base_url('assets/adminlte/'); ?>dist/css/adminlte.min.css">
     <!-- MyCSS-->
     <link rel="stylesheet" href="<?= base_url('assets/adminlte/'); ?>style.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -131,6 +130,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <a href="<?= base_url('Form/editus'); ?>" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>users</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('Form/editL'); ?>" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Lupa Password</p>
                                     </a>
                                 </li>
 
