@@ -7,6 +7,7 @@ class Form extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Buku_model');
+        $this->load->model('Us_model');
 
         $this->load->library('form_validation');
     }
@@ -55,6 +56,7 @@ class Form extends CI_Controller
         $this->load->view('user/edit', $data);
         $this->load->view('templates/foot', $data);
     }
+
     public function tamp()
     {
         $data['title'] = 'BPPD ';
@@ -149,6 +151,53 @@ class Form extends CI_Controller
             $this->Buku_model->ubahbuku();
             $this->session->set_flashdata('flash', 'Diubah');
             redirect('Form/edit');
+        }
+    }
+
+    //==========================================================
+    public function editus()
+    {
+        $data['sum'] = $this->Buku_model->sum();
+        $data['title'] = 'BPPD ';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['users'] = $this->Us_model->getallus();
+
+        $this->load->view('templates/headus', $data);
+        $this->load->view('user/editus', $data);
+        $this->load->view('templates/foot', $data);
+    }
+    public function hapusus($id)
+    {
+        $data['user'] = $this->Us_model->getallus();
+        $data['sum'] = $this->Buku_model->sum();
+        $this->Us_model->hapusDatauser($id);
+        $this->session->set_flashdata('flash', 'Dihapus');
+        redirect('Form/editus');
+    }
+
+    public function ubahus($id)
+    {
+        $data['user'] = $this->Us_model->getallus();
+        $data['sum'] = $this->Buku_model->sum();
+        $data['title'] = 'ubah user ';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['userss'] = $this->Us_model->getuserById($id);
+
+        $this->form_validation->set_rules('name', 'name', 'required');
+        $this->form_validation->set_rules('email', 'email', 'required');
+        $this->form_validation->set_rules('password', 'password', 'required');
+        $this->form_validation->set_rules('role_id', 'role_id', 'required');
+        $this->form_validation->set_rules('is_active', 'is_active', 'required');
+        $this->form_validation->set_rules('date_created', 'date_created', 'required');
+        $this->form_validation->set_rules('otp', 'otp', 'required');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/headus', $data);
+            $this->load->view('user/ubahus', $data);
+            $this->load->view('templates/foot', $data);
+        } else {
+            $this->Us_model->ubahuser();
+            $this->session->set_flashdata('flash', 'Diubah');
+            redirect('Form/editus');
         }
     }
 }

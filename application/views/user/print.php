@@ -44,14 +44,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <td><?= $ars['rep']; ?> </td>
                         </tr>
 
-                    <?php endforeach; ?>
-                    <td>Jumlah <?= count($buku); ?></td>
+                    <?php endforeach; ?> <td>Jumlah <?= count($buku); ?></td>
                 </tbody>
             </table>
 
             <button onclick="window.print()">cetak</button>
         </div>
-
 
     </div>
     <!-- ./wrapper -->

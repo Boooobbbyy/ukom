@@ -3,13 +3,7 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 mt-3">
-                        <a href="<?= base_url('Form/tambah') ?>" class="btn btn-primary">Tambah Form</a>
-                    </div>
-                </div>
-            </div>
+
 
             <div class="container mt-3">
                 <?php if ($this->session->flashdata('flash')) : ?>
@@ -25,25 +19,25 @@
                         <tr>
                             <th scope="col">No</th>
                             <th scope="col">Nama </th>
-                            <th scope="col">Topik</th>
-                            <th scope="col">Masukan</th>
-                            <th scope="col">Reply</th>
+                            <th scope="col">email</th>
+                            <th scope="col">peran</th>
+                            <th scope="col">status</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $i = 1; ?>
-                        <?php foreach ($buku as $ars) : ?>
+                        <?php foreach ($users as $ars) : ?>
                             <tr>
                                 <th scope="row"><?= $i++; ?></th>
-                                <td><?= $ars['judul']; ?></td>
-                                <td><?= $ars['top']; ?></td>
-                                <td><?= $ars['jumlah']; ?></td>
-                                <td><?= $ars['rep']; ?>
+                                <td><?= $ars['name']; ?></td>
+                                <td><?= $ars['email']; ?></td>
+                                <td><?= $ars['role_id']; ?></td>
+                                <td><?= $ars['is_active']; ?>
                                 <td>
-                                    <a href="<?= base_url(); ?>Form/ubahx/<?= $ars['id']; ?>" class="badge badge-success float-none">ubah</a>
-                                    <a href="<?= base_url(); ?>Form/detail/<?= $ars['id']; ?>" class="badge badge-primary float-none">detail</a>
-                                    <a href="<?= base_url(); ?>Form/hapus/<?= $ars['id']; ?>" class="badge badge-danger float-none" onclick="return confirm('yakin ?');">hapus</a>
+                                    <a href="<?= base_url(); ?>Form/ubahus/<?= $ars['id']; ?>" class="badge badge-success float-none">ubah</a>
+
+                                    <a href="<?= base_url(); ?>Form/hapusus/<?= $ars['id']; ?>" class="badge badge-danger float-none" onclick="return confirm('yakin ?');">hapus</a>
 
                                 </td>
                             </tr>

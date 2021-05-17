@@ -94,6 +94,9 @@
                                         <small class="text-danger"><?= form_error('tanggal'); ?></small>
                                     </div>
 
+
+                                    <p>lokasi anda saat ini: <span id="lokasi"></span></p>
+
                                     <div class="form-group">
                                         <input type="hidden" value="" class="form-control" id="rep" name="rep">
                                         <small class="text-danger"><?= form_error('judul'); ?></small>
@@ -102,7 +105,7 @@
                                         <input type="hidden" value="0" class="form-control" id="res" name="res">
                                         <small class="text-danger"><?= form_error('judul'); ?></small>
                                     </div>
-                                    <button type="submit" name="tambah" class="btn btn-primary float-right">Tambah Data</button>
+                                    <button onclick="getLocation()" type="submit" name="tambah" class="btn btn-primary float-right">Tambah Data</button>
                                 </form>
 
                             </div>
