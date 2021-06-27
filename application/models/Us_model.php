@@ -28,7 +28,7 @@ class Us_model extends CI_Model
             "role_id" => $this->input->post('role_id', true),
             "is_active" => $this->input->post('is_active', true),
             "date_created" => $this->input->post('date_created', true),
-            "otp" => $this->input->post('otp', true),
+
         ];
         $this->db->where('id', $this->input->post('id'));
         $this->db->update('user', $data);

@@ -69,11 +69,7 @@
 
                                  <small class="text-danger"><?= form_error('is_active'); ?></small>
                              </div>
-                             <div class="form-group">
-                                 <label for="otp">otp</label>
-                                 <input value="<?= $userss['otp']; ?> " type="text" class="form-control" id="otp" name="otp" readonly>
-                                 <small class="text-danger"><?= form_error('otp'); ?></small>
-                             </div>
+
 
                              <div class="form-group">
                                  <input type="hidden" value="1" class="form-control" id="res" name="res">

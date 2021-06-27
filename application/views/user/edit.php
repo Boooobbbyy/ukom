@@ -33,10 +33,10 @@
                     </thead>
                     <tbody>
                         <?php $i = 1; ?>
-                        <?php foreach ($buku as $ars) : ?>
+                        <?php foreach ($psb as $ars) : ?>
                             <tr>
                                 <th scope="row"><?= $i++; ?></th>
-                                <td><?= $ars['judul']; ?></td>
+                                <td><?= $ars['name']; ?></td>
                                 <td><?= $ars['top']; ?></td>
                                 <td><?= $ars['jumlah']; ?></td>
                                 <td><?= $ars['rep']; ?>

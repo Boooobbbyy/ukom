@@ -96,30 +96,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item menu-open">
-                            <a href="#" class="nav-link active">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Form
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
+
+
+                        <li class="nav-item">
+                            <a href="<?= base_url('user/index') ?>" class="nav-link active">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Home</p>
                             </a>
-                            <ul class="nav nav-treeview">
-
-                                <li class="nav-item">
-                                    <a href="<?= base_url('user/index') ?>" class="nav-link active">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Home</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= base_url('user/tamp'); ?>" class="nav-link active">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>tampil</p>
-                                    </a>
-                                </li>
+                        </li>
 
 
-                            </ul>
+
                         </li>
                         <li class="nav-item">
                             <a href="<?= base_url('auth/logout'); ?>" class="nav-link active">

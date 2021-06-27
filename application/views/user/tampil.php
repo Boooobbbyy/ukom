@@ -30,20 +30,20 @@
                  <tr>
                      <th scope="col">No</th>
                      <th scope="col">Nama </th>
-                     <th scope="col">Topik</th>
-                     <th scope="col">Masukan</th>
-                     <th scope="col">Reply</th>
+                     <th scope="col">NISN</th>
+                     <th scope="col">Alamat</th>
+                     <th scope="col">Gender</th>
                  </tr>
              </thead>
              <tbody>
                  <?php $i = 1; ?>
-                 <?php foreach ($buku as $ars) : ?>
+                 <?php foreach ($psb as $ars) : ?>
                      <tr>
                          <th scope="row"><?= $i++; ?></th>
-                         <td><?= $ars['judul']; ?></td>
-                         <td><?= $ars['top']; ?></td>
+                         <td><?= $ars['name']; ?></td>
+                         <td><?= $ars['nisn']; ?></td>
                          <td><?= $ars['jumlah']; ?></td>
-                         <td><?= $ars['rep']; ?>
+                         <td><?= $ars['res']; ?>
 
                          </td>
                      </tr>

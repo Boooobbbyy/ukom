@@ -33,7 +33,7 @@
 
                                 <td>
 
-                                    <a href="<?= base_url(); ?>Form/hapusus/<?= $ars['id']; ?>" class="badge badge-danger float-none" onclick="return confirm('yakin ?');">hapus</a>
+                                    <a href="<?= base_url(); ?>Form/hapusL/<?= $ars['id']; ?>" class="badge badge-danger float-none" onclick="return confirm('yakin ?');">hapus</a>
 
                                 </td>
                             </tr>

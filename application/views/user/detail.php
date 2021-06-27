@@ -20,7 +20,7 @@
             Detail Data Form
         </div>
         <div class="card-body">
-            <h5 class="card-title"><?= $mahasiswa['judul']; ?></h5>
+            <h5 class="card-title"><?= $mahasiswa['name']; ?></h5>
             <p class="card-text"><?= $mahasiswa['jumlah']; ?></p>
             <p class="card-text"><?= $mahasiswa['tanggal']; ?></p>
             <a href="<?= base_url('user/index') ?>" class="btn btn-primary">Kembali</a>

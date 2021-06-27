@@ -13,16 +13,18 @@ class User extends CI_Controller
 
     public function index()
     {
-        $data['buku'] = $this->Buku_model->getALlbuku();
+        $data['psb'] = $this->Buku_model->getALlbuku();
         $data['sum'] = $this->Buku_model->sum();
         $data['title'] = 'BPPD ';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $this->form_validation->set_rules('judul', 'Judul Buku', 'required');
+        $this->form_validation->set_rules('name', 'name  ', 'required');
         $this->form_validation->set_rules('jumlah', 'jumlah', 'required');
         $this->form_validation->set_rules('tanggal', 'Tanggal Masuk', 'required');
         $this->form_validation->set_rules('top', 'top', 'required');
+        $this->form_validation->set_rules('nisn', 'nisn', 'required');
         $this->form_validation->set_rules('res', 'res', 'required');
+        $this->form_validation->set_rules('rep', 'rep', 'required');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/uhead', $data);
@@ -35,7 +37,7 @@ class User extends CI_Controller
         }
 
         if ($this->input->post('cari')) {
-            $data['buku'] = $this->Buku_model->cariDatabuku();
+            $data['psb'] = $this->Buku_model->cariDatabuku();
         }
     }
 
@@ -44,9 +46,9 @@ class User extends CI_Controller
         $data['title'] = 'BPPD ';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['sum'] = $this->Buku_model->sum();
-        $data['buku'] = $this->Buku_model->getALlbuku();
+        $data['psb'] = $this->Buku_model->getALlbuku();
         if ($this->input->post('cari')) {
-            $data['buku'] = $this->Buku_model->cariDatabuku();
+            $data['psb'] = $this->Buku_model->cariDatabuku();
         }
 
         $this->load->view('templates/uhead', $data);
@@ -59,9 +61,9 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $data['sum'] = $this->Buku_model->sum();
-        $data['buku'] = $this->Buku_model->getALlbuku();
+        $data['psb'] = $this->Buku_model->getALlbuku();
         if ($this->input->post('cari')) {
-            $data['buku'] = $this->Buku_model->cariDatabuku();
+            $data['psb'] = $this->Buku_model->cariDatabuku();
         }
 
 
@@ -70,7 +72,7 @@ class User extends CI_Controller
 
     public function detail($id)
     {
-        $data['buku'] = $this->Buku_model->getALlbuku();
+        $data['psb'] = $this->Buku_model->getALlbuku();
         $data['sum'] = $this->Buku_model->sum();
         $data['title'] = 'Detail Form';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
@@ -81,14 +83,15 @@ class User extends CI_Controller
     }
     public function tambah()
     {
-        $data['buku'] = $this->Buku_model->getALlbuku();
+        $data['psb'] = $this->Buku_model->getALlbuku();
         $data['title'] = 'Tambah Form ';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['sum'] = $this->Buku_model->sum();
-        $this->form_validation->set_rules('judul', 'Judul Buku', 'required');
+        $this->form_validation->set_rules('name', 'name  ', 'required');
         $this->form_validation->set_rules('jumlah', 'jumlah', 'required');
         $this->form_validation->set_rules('tanggal', 'Tanggal Masuk', 'required');
         $this->form_validation->set_rules('top', 'top', 'required');
+        $this->form_validation->set_rules('nisn', 'nisn', 'required');
         $this->form_validation->set_rules('rep', 'rep', 'required');
         $this->form_validation->set_rules('res', 'res', 'required');
 

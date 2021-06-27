@@ -27,14 +27,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="input-group mb-3">
-                        <input type="password" class="form-control" id="otp" name="otp" placeholder="OTP">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
-                        </div>
-                    </div>
+
                     <small class="text-danger"><?= form_error('password'); ?></small>
                     <div class="row">
                         <div class="col-8">
@@ -54,7 +47,7 @@
 
 
                 <p class="mb-0">
-                    <a href="<?= base_url('auth/registration') ?>" class="text-center">Register a new membership</a>
+                    <a href="<?= base_url('auth/registration') ?>" class="text-center">Register </a>
                 </p>
                 <p class="mb-0">
                     <a href="<?= base_url('Form/forgot') ?>" class="text-center">Forgot Password</a>

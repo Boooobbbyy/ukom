@@ -55,7 +55,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item">
                     <a href="<?= base_url('Form/edit') ?>" class="notification">
                         <span>Inbox</span>
-                        <span class="badge"><?= count($buku) - $sum; ?></span>
+                        <span class="badge"><?= count($psb) - $sum; ?></span>
                     </a>
                 </li>
                 <li class="nav-item">

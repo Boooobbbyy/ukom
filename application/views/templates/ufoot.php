@@ -28,35 +28,6 @@
 <!-- AdminLTE App -->
 <script src="<?= base_url('assets/adminlte/'); ?>dist/js/adminlte.min.js"></script>
 
-<script type="text/javascript">
-    $(document).ready(function() {
-        navigator.geolocation.getCurrentPosition(function(position) {
-            tampilLokasi(position);
-        }, function(e) {
-            alert('Geolocation Tidak Mendukung Pada Browser Anda');
-        }, {
-            enableHighAccuracy: true
-        });
-    });
-
-    function tampilLokasi(posisi) {
-        //console.log(posisi);
-        var latitude = posisi.coords.latitude;
-        var longitude = posisi.coords.longitude;
-        $.ajax({
-            type: 'POST',
-            url: 'lokasi.php',
-            data: 'latitude=' + latitude + '&longitude=' + longitude,
-            success: function(e) {
-                if (e) {
-                    $('#lokasi').html(e);
-                } else {
-                    $('#lokasi').html('Tidak Tersedia');
-                }
-            }
-        })
-    }
-</script>
 </body>
 
 </html>
