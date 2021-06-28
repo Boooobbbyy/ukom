@@ -41,7 +41,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- SEARCH FORM -->
             <form class="form-inline ml-3" action="" method="post">
                 <div class="input-group input-group-sm">
-                    <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search" name="cari">
+                    <input class="form-control form-control-navbar" type="search" placeholder="Search NISN" aria-label="Search" name="cari">
                     <div class="input-group-append">
                         <button class="btn btn-navbar" type="submit">
                             <i class="fas fa-search"></i>
@@ -73,7 +73,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Brand Logo -->
             <a href="<?= base_url('user/index') ?>" class="brand-link">
                 <img src="<?= base_url('assets/adminlte/'); ?>dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">SiEKA</span>
+                <span class="brand-text font-weight-light">PSB</span>
             </a>
 
             <!-- Sidebar -->
@@ -96,16 +96,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item menu-open">
+                            <ul class="nav nav-treeview">
 
+                                <li class="nav-item">
+                                    <a href="<?= base_url('user/index') ?>" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Home</p>
+                                    </a>
+                                </li>
 
-                        <li class="nav-item">
-                            <a href="<?= base_url('user/index') ?>" class="nav-link active">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Home</p>
-                            </a>
-                        </li>
-
-
+                                <li class="nav-item">
+                                    <a href="<?= base_url('user/tamp'); ?>" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>tampil</p>
+                                    </a>
+                                </li>
 
                         </li>
                         <li class="nav-item">
@@ -114,6 +119,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <p>logout</p>
                             </a>
                         </li>
+                    </ul>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

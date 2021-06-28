@@ -21,47 +21,72 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 </head>
 
-<body class="hold-transition sidebar-mini">
-    <div class="wrapper">
-        <div class="container mt-3">
+<body>
 
-            <table class="table">
-                <thead class="table-dark">
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Nama </th>
-                        <th scope="col">Masukan</th>
-                        <th scope="col">Reply</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $i = 1; ?>
-                    <?php foreach ($psb as $ars) : ?>
-                        <tr>
-                            <th scope="row"><?= $i++; ?></th>
-                            <td><?= $ars['name']; ?></td>
-                            <td><?= $ars['jumlah']; ?></td>
-                            <td><?= $ars['rep']; ?> </td>
-                        </tr>
 
-                    <?php endforeach; ?> <td>Jumlah <?= count($psb); ?></td>
-                </tbody>
-            </table>
+    <hr>
+    <h5 class="text-center"><u>Penerimaan Siswa Baru</u></h5>
+    <h6 class="text-center">TAHUN AJARAN 2021/2022</h6><br>
+    <h4 class="text-center"><?= $mahasiswa['rep']; ?></h4>
+    <br>
+    <div class="container box">
+        <div class="col-lg-12 box">
+            <div class="panel panel-default">
+                <div class="panel-body noselect">
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <td>NISN</td>
+                                <td>:<?= $mahasiswa['nisn']; ?></td>
+                            </tr>
+                            <tr>
+                                <td>Nama Lengkap</td>
+                                <td>: <?= $mahasiswa['name']; ?></td>
+                            </tr>
+                            <tr>
+                                <td>Jenis Kelamin</td>
+                                <td>: <?= $mahasiswa['res']; ?></td>
+                            </tr>
+                            <tr>
+                                <td>Agama</td>
+                                <td>: <?= $mahasiswa['top']; ?></td>
+                            </tr>
+                            <tr>
+                                <td>Tanggal Lahir</td>
+                                <td>: <?= $mahasiswa['tanggal']; ?></td>
+                            </tr>
+                            <tr>
+                                <td>Alamat</td>
+                                <td>: <?= $mahasiswa['jumlah']; ?></td>
+                            </tr>
 
-            <button onclick="window.print()">cetak</button>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-
     </div>
-    <!-- ./wrapper -->
 
-    <!-- REQUIRED SCRIPTS -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <center>
 
-    <!-- jQuery -->
-    <script src="<?= base_url('assets/adminlte/'); ?>plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="<?= base_url('assets/adminlte/'); ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="<?= base_url('assets/adminlte/'); ?>dist/js/adminlte.min.js"></script>
+        <button onclick="window.print()">cetak</button>
+    </center>
 </body>
 
 </html>

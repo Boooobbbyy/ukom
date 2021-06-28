@@ -76,12 +76,12 @@
                                  </div>
                                  <div class="col-md-6">
                                      <div class="form-group">
-                                         <label for="rep">Status </label>
+                                         <label for="rep">Status </label> <small class="text-danger"><?= $mahasiswa['rep']; ?></small>
                                          <select name="rep" id="rep" class="form-control">
-                                             <option value="0">Tidak Lulus</option>
-                                             <option value="1">Lulus</option>
+                                             <option value="Tidak Lulus">Tidak Lulus</option>
+                                             <option value="Lulus">Lulus</option>
                                          </select>
-                                         <small class="text-danger"><?= form_error('rep'); ?></small>
+
                                      </div>
                                  </div>
                              </div>

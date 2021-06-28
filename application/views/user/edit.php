@@ -3,13 +3,7 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 mt-3">
-                        <a href="<?= base_url('Form/tambah') ?>" class="btn btn-primary">Tambah Form</a>
-                    </div>
-                </div>
-            </div>
+
 
             <div class="container mt-3">
                 <?php if ($this->session->flashdata('flash')) : ?>
@@ -25,9 +19,10 @@
                         <tr>
                             <th scope="col">No</th>
                             <th scope="col">Nama </th>
-                            <th scope="col">Topik</th>
-                            <th scope="col">Masukan</th>
-                            <th scope="col">Reply</th>
+                            <th scope="col">NISN</th>
+                            <th scope="col">Agama</th>
+                            <th scope="col">Alamat</th>
+                            <th scope="col">Status</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
@@ -37,6 +32,7 @@
                             <tr>
                                 <th scope="row"><?= $i++; ?></th>
                                 <td><?= $ars['name']; ?></td>
+                                <td><?= $ars['nisn']; ?></td>
                                 <td><?= $ars['top']; ?></td>
                                 <td><?= $ars['jumlah']; ?></td>
                                 <td><?= $ars['rep']; ?>

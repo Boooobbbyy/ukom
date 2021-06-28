@@ -1,13 +1,13 @@
 <?php
 
-class Buku_model extends CI_Model
+class Siswa_Model extends CI_Model
 {
-    public function getALlbuku()
+    public function getALlssw()
     {
         return $this->db->get('psb')->result_array();
     }
 
-    public function tambahDatabuku()
+    public function tambahDatassw()
     {
         $data = [
             "name" => $this->input->post('name', true),
@@ -24,13 +24,13 @@ class Buku_model extends CI_Model
         $this->db->insert('psb', $data);
     }
 
-    public function hapusDatabuku($id)
+    public function hapusDatassw($id)
     {
         $this->db->where('id', $id);
         $this->db->delete('psb');
     }
 
-    public function getbukuById($id)
+    public function getsswById($id)
     {
         return $this->db->get_where('psb', ['id' => $id])->row_array();
     }
@@ -41,7 +41,7 @@ class Buku_model extends CI_Model
         return $result->row()->res;
     }
 
-    public function ubahbuku()
+    public function ubahssw()
     {
         $data = [
             "name" => $this->input->post('name', true),
@@ -57,10 +57,18 @@ class Buku_model extends CI_Model
         $this->db->update('psb', $data);
     }
 
-    public function cariDatabuku()
+    public function cariDatassw()
     {
         $keyword = $this->input->post('cari', true);
         $this->db->like('nisn', $keyword);
         return $this->db->get('psb')->result_array();
+    }
+    public function join2table()
+    {
+        $this->db->select('*');
+        $this->db->from('psb');
+        $this->db->join('user', 'user.name = psb.name');
+        $query = $this->db->get();
+        return $query;
     }
 }

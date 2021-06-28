@@ -19,6 +19,7 @@
                 <!-- ./col -->
             </div>
 
+
             <div class="container">
                 <div class="alert alert-secondary alert-dismissible fade show" role="alert"> <?= $user['name']; ?>
 
@@ -33,7 +34,7 @@
                                 <label>Tambah Data Form</label>
                             </div>
                             <div class="card-body">
-                                <form action="" method="post">
+                                <form action=" " method="post">
                                     <div class="row mt-3">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -89,6 +90,12 @@
                                                 </select>
                                                 <small class="text-danger"><?= form_error('top'); ?></small>
                                             </div>
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <input type="text" class="form-control" value="0" id="rep" name="rep" hidden>
+
                                         </div>
                                     </div>
 

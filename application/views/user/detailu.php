@@ -26,7 +26,7 @@
             <p class="card-text">Status = <?= $mahasiswa['rep']; ?></p>
             <p class="card-text">Gender = <?= $mahasiswa['res']; ?></p>
             <p class="card-text">Tgl Lahir = <?= $mahasiswa['tanggal']; ?></p>
-            <a href="<?= base_url('form/edit') ?>" class="btn btn-primary">Kembali</a>
+            <a href="<?= base_url('user/tamp') ?>" class="btn btn-primary">Kembali</a>
 
         </div>
     </div>

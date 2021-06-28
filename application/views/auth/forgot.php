@@ -1,7 +1,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="<?= base_url('assets/adminlte'); ?>/index2.html"><b>SiEKA </b>Lampung</a>
+            <a href="<?= base_url('assets/adminlte'); ?>/index2.html"> PSB < </a>
         </div>
         <!-- /.login-logo -->
         <div class="card">
