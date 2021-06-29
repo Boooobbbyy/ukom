@@ -59,15 +59,15 @@
                                  <small class="text-danger"><?= form_error('role_id'); ?></small>
                              </div>
                              <div class="form-group">
-                                 <label for="is_active">status</label>
-                                 <select autocomplete="off" autofocus="on" class="form-control custom-select " id="is_active" name="is_active">
-                                     <option value="<?= $userss['is_active']; ?>" selected> Pilih salah satu </option>
+                                 <label for="stat">status</label>
+                                 <select autocomplete="off" autofocus="on" class="form-control custom-select " id="stat" name="stat">
+                                     <option value="<?= $userss['stat']; ?>" selected> Pilih salah satu </option>
                                      <option value="1">aktif</option>
                                      <option value="0">non aktif</option>
 
                                  </select>
 
-                                 <small class="text-danger"><?= form_error('is_active'); ?></small>
+                                 <small class="text-danger"><?= form_error('stat'); ?></small>
                              </div>
 
 

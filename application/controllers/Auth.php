@@ -37,31 +37,25 @@ class Auth extends CI_Controller
 
 
             //jka usernya aktif
-            if ($user['is_active'] == 1) {
-                //cek password
-                if (password_verify($password, $user['password'])) {
-                    $data = [
-                        'email' =>  $user['email'],
-                        'role_id' => $user['role_id']
-                    ];
-                    if ($user['role_id'] == 2) {
-                        $this->session->set_userdata($data);
-                        redirect('Form');
-                    }
-                    if ($user['role_id'] == 1) {
-                        $this->session->set_userdata($data);
-                        redirect('user');
-                    }
-                } else {
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                    Wrong password!
-                    </div>');
-                    redirect('auth');
+
+            //cek password
+            if (password_verify($password, $user['password'])) {
+                $data = [
+                    'email' =>  $user['email'],
+                    'role_id' => $user['role_id']
+                ];
+                if ($user['role_id'] == 2) {
+                    $this->session->set_userdata($data);
+                    redirect('Form');
+                }
+                if ($user['role_id'] == 1) {
+                    $this->session->set_userdata($data);
+                    redirect('user');
                 }
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                This email is not been activated!
-                </div>');
+                    Wrong password!
+                    </div>');
                 redirect('auth');
             }
         } else {
@@ -96,7 +90,7 @@ class Auth extends CI_Controller
 
                 'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
                 'role_id' => 1,
-                'is_active' => 1,
+                'stat' => 0,
                 'date_created' => time()
             ];
 

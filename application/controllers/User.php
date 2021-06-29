@@ -15,10 +15,15 @@ class User extends CI_Controller
     {
         $data['psb'] = $this->Siswa_Model->getALlssw();
         $data['sum'] = $this->Siswa_Model->sum();
+        $data['count'] = $this->Siswa_Model->count();
         $data['title'] = 'BPPD ';
+        $this->db->select('*');
+        $this->db->from('psb');
+        // $data['join'] = $this->db->select('psb.*, psb.id AS name, user.name')->join('psb', 'user.name = psb.name');
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-
-        $this->form_validation->set_rules('name', 'name  ', 'required');
+        //  $query = $this->db->get();
+        // return $query->result();
+        $this->form_validation->set_rules('name', 'name  ', 'required|is_unique[psb.name]');
         $this->form_validation->set_rules('jumlah', 'jumlah', 'required');
         $this->form_validation->set_rules('tanggal', 'Tanggal Masuk', 'required');
         $this->form_validation->set_rules('top', 'top', 'required');
@@ -57,18 +62,13 @@ class User extends CI_Controller
     }
     public function print($id)
     {
-        $data['title'] = 'BPPD ';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['mahasiswa'] = $this->Siswa_Model->getsswById($id);
-        $data['sum'] = $this->Siswa_Model->sum();
-        $data['psb'] = $this->Siswa_Model->getALlssw();
-        if ($this->input->post('cari')) {
-            $data['psb'] = $this->Siswa_Model->cariDatassw();
-        }
-
-
-        $this->load->view('user/print', $data);
+        $mpdf = new \Mpdf\Mpdf();
+        $a = $this->Siswa_Model->getsswById($id);
+        $data = $this->load->view('user/print', ['mahasiswa' => $a], TRUE);
+        $mpdf->WriteHTML($data);
+        $mpdf->Output();
     }
+
 
     public function detail($id)
     {
@@ -87,7 +87,7 @@ class User extends CI_Controller
         $data['title'] = 'Tambah Form ';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['sum'] = $this->Siswa_Model->sum();
-        $this->form_validation->set_rules('name', 'name  ', 'required');
+        $this->form_validation->set_rules('name', 'name  ', 'required|is_unique[psb.name]');
         $this->form_validation->set_rules('jumlah', 'jumlah', 'required');
         $this->form_validation->set_rules('tanggal', 'Tanggal Masuk', 'required');
         $this->form_validation->set_rules('top', 'top', 'required');
@@ -102,7 +102,7 @@ class User extends CI_Controller
         } else {
             $this->Siswa_Model->tambahDatassw();
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('Form');
+            redirect('User');
         }
     }
 }

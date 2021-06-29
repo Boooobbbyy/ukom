@@ -33,7 +33,7 @@
                                 <td><?= $ars['name']; ?></td>
                                 <td><?= $ars['email']; ?></td>
                                 <td><?= $ars['role_id']; ?></td>
-                                <td><?= $ars['is_active']; ?>
+                                <td><?= $ars['stat']; ?>
                                 <td>
                                     <a href="<?= base_url(); ?>Form/ubahus/<?= $ars['id']; ?>" class="badge badge-success float-none">ubah</a>
 

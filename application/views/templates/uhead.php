@@ -104,7 +104,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <p>Home</p>
                                     </a>
                                 </li>
-
+                                <li class="nav-item">
+                                    <a href="<?= base_url('user/tambah'); ?>" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Tambah</p>
+                                    </a>
+                                </li>
                                 <li class="nav-item">
                                     <a href="<?= base_url('user/tamp'); ?>" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>

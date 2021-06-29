@@ -36,9 +36,15 @@ class Siswa_Model extends CI_Model
     }
     public function sum()
     {
-        $sql = "SELECT sum(res) as res FROM psb";
+        $sql = "SELECT sum(stat) as stat FROM user";
         $result = $this->db->query($sql);
-        return $result->row()->res;
+        return $result->row()->stat;
+    }
+    public function count()
+    {
+        $sql = "SELECT count(stat) as stat FROM user";
+        $result = $this->db->query($sql);
+        return $result->row()->stat;
     }
 
     public function ubahssw()
@@ -62,13 +68,5 @@ class Siswa_Model extends CI_Model
         $keyword = $this->input->post('cari', true);
         $this->db->like('nisn', $keyword);
         return $this->db->get('psb')->result_array();
-    }
-    public function join2table()
-    {
-        $this->db->select('*');
-        $this->db->from('psb');
-        $this->db->join('user', 'user.name = psb.name');
-        $query = $this->db->get();
-        return $query;
     }
 }

@@ -16,6 +16,7 @@ class Form extends CI_Controller
     {
         $data['psb'] = $this->Siswa_Model->getALlssw();
         $data['sum'] = $this->Siswa_Model->sum();
+        $data['count'] = $this->Siswa_Model->count();
         $data['title'] = 'BPPD ';
 
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
@@ -194,7 +195,7 @@ class Form extends CI_Controller
         $this->form_validation->set_rules('email', 'email', 'required');
         $this->form_validation->set_rules('password', 'password', 'required');
         $this->form_validation->set_rules('role_id', 'role_id', 'required');
-        $this->form_validation->set_rules('is_active', 'is_active', 'required');
+        $this->form_validation->set_rules('stat', 'stat', 'required');
         $this->form_validation->set_rules('date_created', 'date_created', 'required');
 
         if ($this->form_validation->run() == false) {
